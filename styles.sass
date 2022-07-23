@@ -1,0 +1,499 @@
+//Fonts
+$AW: 'Audiowide', cursive
+$DM: 'DM Mono', monospace
+$IR: 'Inter', sans-serif
+
+//Variables
+$greenText: rgba(141, 253, 27, 1)
+
+//Mixins
+@mixin other-link
+  background: white
+  padding: 8px
+  margin-right: 20px
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin subtitle
+  line-height: 45px
+  color: #A8A8A8
+
+@mixin paragraph
+  line-height: 26px
+
+@mixin green-title
+  color : $greenText
+  padding-left: 20px
+  border-left: 2px solid $greenText
+  font-size: 22px
+  line-height: 32px
+  font-family: $DM
+//Styles
+
+*
+  margin: 0
+  box-sizing: border-box
+  color: white
+  text-decoration: none
+
+body
+  font-size: 16px
+  background: black
+h1, h2, h3
+  text-transform: uppercase
+  font-family: $AW
+h1
+  font-size: 80px
+h2
+  font-size: 50px
+h3
+  font-size: 38px
+p
+  font-family: $IR
+button
+  border: none
+  background: none
+  font-family: $DM
+a
+  font-family: $DM
+
+//Header
+.header
+
+  &__wrapper
+    max-width: 1160px
+    margin: 50px auto 14px
+    display: flex
+    justify-content: space-between
+
+  &__logo-nav
+    display: flex
+    align-items: center
+
+  &__logo, &__link
+    margin-right: 40px
+
+  &__link
+    &:last-child
+      margin-right: 0
+
+  &__other-links
+    display: flex
+
+  &__other-link
+    @include other-link
+
+    &:last-child
+      margin-right: 0
+
+
+//Main
+main
+  max-width: 1440px
+  margin: 0 auto
+
+.wrapper
+  display: flex
+  flex-direction: column
+  max-width: 1380px
+  margin: 0 auto
+
+.intro
+  &__content
+    display: flex
+  &__text
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: flex-start
+  &__description
+    @include paragraph
+    margin-top: 40px
+    max-width: 340px
+  &__link
+    margin-top: 115px
+    background: #8DFD1B
+    padding: 20px 40px
+    color: black
+
+
+.nft
+  margin-top: 120px
+  &__content
+    max-width: 1160px
+    display: flex
+    justify-content: space-between
+  &__main
+    max-width: 350px
+  &__subtitle
+    @include subtitle
+  &__text
+    display: flex
+    flex-direction: column
+    max-width: 580px
+  &__text-title
+    @include green-title
+  &__description
+    margin-top: 32px
+  &__paragraph
+    @include paragraph
+    margin-top: 18px
+    &:first-child
+      margin-top: 0
+  &__link
+    margin-top: 36px
+    padding: 13px 33px
+    border: 1px solid $greenText
+    align-self: flex-start
+    text-transform: capitalize
+
+
+.artists
+  margin-top: 120px
+  &__title
+    text-align: center
+  &__content
+    display: flex
+    flex-wrap: wrap
+    margin-top: 120px
+    max-width: 1160px
+  &__artist
+    margin-right: 40px
+    margin-top: 40px
+    &-name
+      font-size: 16px
+      font-family: $DM
+      line-height: 24px
+      margin: 20px 0
+      text-align: center
+    &:nth-child(4n + 4)
+      margin-right: 0
+    &:nth-child(-n + 4)
+      margin-top: 0
+
+
+.stories
+  margin-top: 240px
+  &__header
+    max-width: 1160px
+    display: flex
+    justify-content: center
+
+  &__subtitle
+    @include subtitle
+
+  &__content
+    display: flex
+    margin-top: 60px
+    max-width: 1160px
+  &__tabs
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+  &__tab
+    display: flex
+    align-items: center
+    padding-left: 28px
+    height: 72px
+    width: 280px
+
+    &._chosen
+      background: #222222
+      color: $greenText
+
+  &__item
+    display: none
+    padding: 60px
+
+    &._chosen
+      display: flex
+      background: #222222
+
+    &-text
+      margin-left: 40px
+
+    &-title
+      @include green-title
+
+    &-description
+      margin-top: 28px
+
+    &-paragraph
+      @include paragraph
+      margin-top: 18px
+
+
+.roadmap
+  margin-top: 120px
+  & .wrapper
+    max-width: 1440px
+    margin: 0 auto
+
+  &__content
+    position: relative
+    z-index: 1
+    margin-top: 120px
+    display: flex
+    flex-direction: column
+    align-items: center
+    max-width: 1380px
+
+    &:before
+      position: absolute
+      display: flex
+      flex-direction: column
+      top: -240px
+      left: 0
+      z-index: -1
+      content: ""
+      height: 1842px
+      width: 1392px
+      background: url("images/roadmap-bg.svg")
+
+  &__item
+    margin-top: 140px
+    max-width: 540px
+    background: #222222
+    &:first-child
+      margin-top: 100px
+    &-header
+      border: 2px solid $greenText
+      border-collapse: collapse
+      display: flex
+      align-items: center
+      padding: 12px
+    &-number
+      height: 45px
+      width: 45px
+      color: $greenText
+      border: 1px solid $greenText
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 28px
+      font-family: $DM
+      margin-right: 12px
+      &._passed
+        background: $greenText
+        color: black
+    &-title
+      font-family: $DM
+      font-size: 16px
+      line-height: 28px
+      text-transform: uppercase
+    &-suptitle
+      font-family: $DM
+      letter-spacing: 1px
+      text-transform: uppercase
+      font-size: 8px
+      color: $greenText
+    &-body
+      display: flex
+      justify-content: space-between
+      border: 2px solid $greenText
+      padding: 30px 12px
+      font-size: 12px
+      >img
+        border-radius: 8px
+        align-self: flex-start
+        margin-left: 75px
+    &-points
+      margin-left: 22px
+      max-width: 310px
+    &-point
+      line-height: 32px
+    &-endpoints
+      margin-top: 10px
+      max-width: 310px
+    &-endpoint
+      line-height: 26px
+      margin-top: 14px
+      &:first-child
+        margin-top: 0
+
+
+.partners
+  margin-top: 284px
+  & .wrapper
+    max-width: 1160px
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__title
+    font-size: 12px
+    font-family: $DM
+    color:  $greenText
+  &__items
+    margin-top: 50px
+    width: 100%
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+  &__item
+    flex: 1 1 auto
+    margin-top: 60px
+    >h2
+      font-size: 36px
+    &:nth-child(-n + 3)
+      margin-top: 0
+
+
+.faq
+  margin-top: 250px
+  & .wrapper
+    max-width: 1160px
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+  &__intro
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    >img
+      margin-top: 50px
+  &__subtitle
+    color: #A8A8A8
+  &__points
+    display: flex
+    flex-direction: column
+    max-width: 580px
+    background: #222222
+  &__point
+
+    &-title
+      position: relative
+      font-size: 16px
+      font-family: $DM
+      padding: 24px 30px
+      &:after
+        position: absolute
+        right: 20px
+        top: 26px
+        content: ""
+        background: white
+        width: 16px
+        height: 18px
+    &-paragraph
+      color: #C4C4C4
+      font-size: 12px
+      line-height: 19px
+      margin: 30px 30px 0 30px
+      &:first-child
+        margin-top: 0
+
+.team
+  margin-top: 120px
+  & .wrapper
+    max-width: 1160px
+    align-items: center
+  &__content
+    margin-top: 130px
+    width: 100%
+    display: flex
+    justify-content: space-between
+  &__member
+    display: flex
+    flex-direction: column
+    align-items: center
+    max-width: 320px
+    &-name
+      margin-top: 20px
+      font-weight: 400
+      font-family: $DM
+      font-size: 21px
+      line-height: 28px
+    &-rank
+      margin-top: 20px
+      font-weight: 400
+      font-size: 11px
+      text-transform: uppercase
+      line-height: 12px
+      color: $greenText
+    &-cite
+      max-width: 240px
+      font-weight: 400
+      font-size: 12px
+      line-height: 19px
+      text-align: center
+  &__social
+    width: 84px
+    margin: 22px 0
+    display: flex
+    justify-content: space-between
+  &__link
+    display: flex
+    justify-content: center
+    align-items: center
+    background: white
+    padding: 8px
+
+.discord
+  margin-top: 240px
+  & .wrapper
+    max-width: 1160px
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+  &__text
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+  &__subtitle
+    color: $greenText
+  &__paragraph
+    margin: 35px 0
+    max-width: 350px
+    font-weight: 400
+    line-height: 26px
+  &__link
+    display: flex
+    align-items: center
+    padding: 15px 30px
+    background: $greenText
+    color: black
+    &>img
+      margin-right: 10px
+
+//Footer
+
+.footer
+  padding: 100px 0
+  margin-top: 120px
+  background: #42006A
+  &__wrapper
+    max-width: 1160px
+    max-height: 120px
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+  &__main
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  &__rights
+    font-weight: 400
+    font-size: 13px
+    line-height: 20px
+  &__nav
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+
+  &__link
+    margin-bottom: 30px
+    margin-right: 100px
+    line-height: 19px
+    &:nth-child(3n)
+      margin-bottom: 0
+  &__creators
+    display: flex
+    flex-direction: column
+  &__creator
+    font-family: $DM
+    font-weight: 400
+    margin-bottom: 30px
+  &__other-links
+    display: flex
+    align-items: flex-start
